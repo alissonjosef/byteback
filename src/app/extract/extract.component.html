@@ -1,0 +1,19 @@
+
+<table class="tabela">
+  <thead class="tabela__cobecalho">
+    <th class="tabela__cabecalho__conteudo">Data</th>
+    <th class="tabela__cabecalho__conteudo">Valor</th>
+    <th class="tabela__cabecalho__conteudo">Destino</th>
+  </thead>
+
+  <tbody *ngIf="transferencias?.length > 0; else listaVazia">
+    <tr class="tabela__linha" *ngFor="let trans of transferencias">
+      <td class="tabela__conteudo">{{trans.date | date : 'short'}}</td>
+      <td class="tabela__conteudo">{{trans.valor | currency}}</td>
+      <td class="tabela__conteudo">{{trans.destino}}</td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #listaVazia>
+  <p>Nenhuam Operação cadastrada</p>
+</ng-template>
